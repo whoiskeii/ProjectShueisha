@@ -1,0 +1,286 @@
+<!-- "Load static que permite y funciona para leer archivos extraídos" -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <!-- "Muestra el ícono de la página web" -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/icon.jpg' %}">
+    <link rel="apple-touch-icon" type="image/jpg" href="{% static 'images/icon.jpg' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animes y Mangas | Shueisha</title> <!-- Título que se muestra en la pestaña -->
+
+    <!-- Fuentes de google utilizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles utilizados -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="{% url 'main:home' %}"> <!-- Al seleccionar el logo de la página web, lleva al inicio nuevamente -->
+                            <img src="{% static 'img/logo.png' %}" alt=""> <!-- Muestra el logo de la página web -->
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a href="{% url 'main:home' %}">Inicio</a></li> <!-- Muestra la página de inicio de la página web -->
+                                <li><a href="{% url 'main:categorie' %}">Categorías <span class="arrow_carrot-down"></span></a> <!-- Despliega las categorías visibles en la página web -->
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:categorie' %}">Categorías</a></li> <!-- Muestra las categorías de animes y mangas de la página web -->
+                                        <li><a href="{% url 'main:reviews' %}">Anime a detalle</a></li> <!-- Muestra la información detallada de un anime de la página web -->
+                                        <li><a href="{% url 'main:watching' %}">Animes Vistos</a></li> <!-- Muestra un anime visto en la página web -->
+                                        <li><a href="{% url 'main:detail' %}">Blog a detalle</a></li> <!-- Muestra un blog a detalle de la página web -->
+                                    </ul>
+                                </li>
+                                <li class="active"><a href="{% url 'main:blogs' %}">Nuestro Blog</a></li> <!-- Muestra los blogs disponibles de la página web -->
+                                <li><a href="{% url 'main:contact' %}">Tu Blog</a></li> <!-- Permite al usuario agregar su blog o comentarios al respecto -->
+                                
+                                <li><a href="">Cuenta <span class="arrow_carrot-down"></span></a> <!-- Despliega los inicio de sesión en la página web -->
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:register' %}">Regístrate</a></li> <!-- Envía a la página de registro del usuario -->
+                                        <li><a href="{% url 'main:login' %}">Inicia sesión</a></li> <!-- Envía a la página de inicio de sesión del usuario -->
+                                        <li><a href="{% url 'main:logout' %}">Cierra sesión</a></li> <!-- Cierra la sesión del usuario -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                        <a href="{% url 'main:login' %}"><span class="icon_profile"></span></a> <!-- Al seleccionar el ícono, envía a la sección de inicio de sesión -->
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__title">
+                        <!-- Categorías y fecha de publicación del blog -->
+                        <h6>Aventura, Acción <span>- Septiembre 08, 2022</span></h6>
+                        <h2>4 cosas que debes tener en cuenta antes de ver el regreso de Bleach</h2> <!-- Título del blog -->
+                        <div class="blog__details__social"> 
+                            <!-- Redes sociales a compartir -->
+                            <a href="#" class="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
+                            <a href="#" class="pinterest"><i class="fa fa-pinterest"></i> Pinterest</a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin-square"></i> Linkedin</a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter-square"></i> Twitter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="blog__details__pic">
+                        <img src="{% static 'img/blog/details/blog-details-pic.jpg' %}" alt=""> <!-- Imagen principal para el blog -->
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="blog__details__content">
+                        <div class="blog__details__text"> <!-- Introducción -->
+                            <p>Primero que nada, ¿Qué es bleach?, ¿de qué trata?
+                                Bleach es un anime de categoría Shounen, fantasía, acción. Trata de un estudiante de 15 años, 
+                                Kurosaki Ichigo que tiene una peculiaridad: es capaz de ver, oír y hablar con fantasmas. 
+                                Pero no sabe hasta dónde puede abarcar la clasificación de espíritus, ni lo que conlleva el saberlo. 
+                                Un buen día, una extraña chica de pequeña estatura que viste ropas negras de samurai entra en su cuarto. 
+                                Se llama Rukia Kuchiki, y es una Shinigami (Dios de la Muerte). Ante la incredulidad de Ichigo, 
+                                le explica que su trabajo es mandar a las almas buenas o plus a un lugar llamado la Sociedad de Almas, 
+                                y eliminar a las almas malignas o hollows. Luego junto a Inoue Orihime, Ishida Uryū y Sado Yasutora se 
+                                verán envueltos en diferentes batallas, las cuales irán desarrollando sus diferentes habilidades que le 
+                                otorgarán a cada uno su importancia en la serie.
+                                </p>
+                        </div>
+                        <div class="blog__details__item__text">
+                            <!-- Siguientes secciones del blog con imágenes y comentarios -->
+                            <h4>Capítulos:</h4>
+                            <img src="{% static 'img/blog/details/bd-item-1.jpg' %}" alt="">
+                            <p>Antes de ver el regreso de Bleach luego de 10 largos años, debemos comenzar a ver la primera parte de 
+                                esta serie emitida el 5 de octubre de 2004, que consta de 366 capítulos y 3 películas.</p>
+                        </div>
+                        <div class="blog__details__item__text">
+                            <h4>Categoría:</h4>
+                            <img src="{% static 'img/blog/details/bd-item-2.jpg' %}" alt="">
+                            <p>El anime de Bleach es categoría Shounen, significa que va dirigido a los chicos adolescentes. 
+                                Bleach contiene grandes dosis de acción, en las que a menudo se dan situaciones humorísticas, 
+                                también destaca el compañerismo entre miembros de un colectivo o de un equipo de combate.</p>
+                        </div>
+                        <div class="blog__details__item__text">
+                            <h4>Mangaka:</h4>
+                            <img src="{% static 'img/blog/details/bd-item-3.jpg' %}" alt="">
+                            <p>Este gran anime fue creado y dibujado por el japones Tite Kubo que su nombre real es Noriaki Kubo, 
+                                y nació el 26 de junio de 1977 en la prefectura de Hiroshima. La adaptación al anime llego por el 
+                                estudio japones Pierrot, es famoso por varias series de anime populares en todo el mundo, como Naruto, 
+                                Yū Yū Hakusho, Boruto, Black Clover, Tokyo Ghoul, Great Teacher Onizuka y muchos otros.</p>
+                        </div>
+                        <div class="blog__details__tags"> <!-- Etiquetas de los temas relacionados blog -->
+                            <a href="#">Manga</a>
+                            <a href="#">Titekubo</a>
+                            <a href="#">Ichigokurosaki</a>
+                        </div>
+                        <div class="blog__details__btns">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="blog__details__btns__item">
+                                        <h5><a href="#"><span class="arrow_left"></span> Animes como Jujutsu Kaisen...</a> <!-- Sección que muestra recomendaciones o sugerencias de otros blogs -->
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="blog__details__btns__item next__btn">
+                                        <h5><a href="#">¿Cuánto queda para el final de One Piece? <span
+                                            class="arrow_right"></span></a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__details__comment">
+                                <h4>3 Comentarios</h4> <!-- Sección de comentarios por los usuarios con su avatar, fecha de publicación, nombre y comentario -->
+                                <div class="blog__details__comment__item">
+                                    <div class="blog__details__comment__item__pic">
+                                        <img src="{% static 'img/blog/details/comment-1.png' %}" alt="">
+                                    </div>
+                                    <div class="blog__details__comment__item__text">
+                                        <span>Sep 08, 2022</span>
+                                        <h5>Johnny Montilla</h5>
+                                        <p>La piel de gallina cuando comenzó el OST y cuando Ichigo dijo "¡Ban...kai!". 
+                                            ¡Estoy tan lista para este arco! He estado esperando este momento durante tanto tiempo. 
+                                            Realmente es una montaña rusa de emociones</p>
+                                        <a href="#">Me gusta</a> <!-- Ofrece la opción de dar "me gusta" o "responder" al comentario -->
+                                        <a href="#">Responder</a>
+                                    </div>
+                                </div>
+                                <div class="blog__details__comment__item blog__details__comment__item--reply">
+                                    <div class="blog__details__comment__item__pic">
+                                        <img src="{% static 'img/blog/details/comment-2.png' %}" alt="">
+                                    </div>
+                                    <div class="blog__details__comment__item__text">
+                                        <span>Sep 08, 2022</span>
+                                        <h5>Neejay</h5>
+                                        <p>Facts</p>
+                                        <a href="#">Me gusta</a>
+                                        <a href="#">Responder</a>
+                                    </div>
+                                </div>
+                                <div class="blog__details__comment__item">
+                                    <div class="blog__details__comment__item__pic">
+                                        <img src="{% static 'img/blog/details/comment-3.png' %}" alt="">
+                                    </div>
+                                    <div class="blog__details__comment__item__text">
+                                        <span>Sep 08, 2022</span>
+                                        <h5>Abdou Benbada</h5>
+                                        <p>¡Realmente puedes escuchar la emoción en la voz de cada VA por volver a expresar su personaje después de una pausa tan larga!</p>
+                                        <a href="#">Me gusta</a>
+                                        <a href="#">Responder</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__details__form">
+                                <h4>Deja un comentario</h4> <!-- Posibilidad al usuario de realizar su comentario -->
+                                <form action="{% url 'main:upload' %}">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <textarea placeholder="Si deseas realizar un comentario, selecciona 'Comentar'"></textarea>
+                                            <button type="submit" class="site-btn">Comentar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Details Section End -->
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="page-up">
+                <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer__logo">
+                            <!-- Al seleccionar el logo de la página web, lleva al inicio nuevamente -->
+                            <a href="{% url 'main:home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a> <!-- Muestra el logo de la página web -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer__nav">
+                            <ul>
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li> <!-- Muestra la página de inicio de la página web -->
+                                <li><a href="{% url 'main:categorie' %}">Categorías</a></li> <!-- Muestra las categorías de animes y mangas de la página web -->
+                                <li><a href="{% url 'main:blogs' %}">Nuestro Blog</a></li> <!-- Muestra los blogs disponibles de la página web -->
+                                <li><a href="{% url 'main:contact' %}">Tu Blog</a></li> <!-- Permite al usuario agregar su blog o comentarios al respecto -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <B><FONT COLOR="white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Animes y Mangas | Shueisha <i class="fa fa-heart" aria-hidden="true"></i> por: <a href="" target="_blank"> Keily Marín</a></FONT></B>
+                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+                      </div>
+                  </div>
+              </div>
+          </footer>
+          <!-- Footer Section End -->
+
+          <!-- Search model Begin -->
+          <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch"><i class="icon_close"></i></div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Busca aquí....."> <!-- Simula poder realizar una busqueda en la página web -->
+                </form>
+            </div>
+        </div>
+        <!-- Search model end -->
+
+        <!-- Js Plugins utilizados -->
+        <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'bootstrap.min.js' %}"></script>
+        <script src="{% static 'player.js' %}"></script>
+        <script src="{% static 'jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'mixitup.min.js' %}"></script>
+        <script src="{% static 'jquery.slicknav.js' %}"></script>
+        <script src="{% static 'owl.carousel.min.js' %}"></script>
+        <script src="{% static 'main.js' %}"></script>
+    </body>
+
+    </html>

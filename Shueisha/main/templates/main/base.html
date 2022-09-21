@@ -1,0 +1,160 @@
+<!-- "Load static que permite y funciona para leer archivos extraídos" -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="author" content="Did Coding Limited & James Granger Design">
+    <link rel="canonical" href="{{request.path}}"/>
+    <link rel="home" href="{% url 'main:home' %}"/>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+
+    <!-- "Muestra el ícono de la página web" -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/icon.jpg' %}">
+    <link rel="apple-touch-icon" type="image/jpg" href="{% static 'images/icon.jpg' %}">
+
+    <!-- ================================
+    Start CSS
+    =================================
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7.0.5/swiper-bundle.min.css">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    {% block extend_header%}{%endblock%}
+     ================================
+    End CSS
+    ================================= -->
+
+    <!-- Fuentes de google utilizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles utilizados -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'style1.css' %}" type="text/css">
+
+  </head>
+
+      <!-- Header Section Begin -->
+      <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="{% url 'main:home' %}"> <!-- Al seleccionar el logo de la página web, lleva al inicio nuevamente -->
+                            <img src="{% static 'img/logo.png' %}" alt=""> <!-- Muestra el logo de la página web -->
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li> <!-- Muestra la página de inicio de la página web -->
+                                <li><a href="{% url 'main:categorie' %}">Categorías <span class="arrow_carrot-down"></span></a> <!-- Despliega las categorías visibles en la página web -->
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:categorie' %}">Categorías</a></li> <!-- Muestra las categorías de animes y mangas de la página web -->
+                                        <li><a href="{% url 'main:reviews' %}">Anime a detalle</a></li> <!-- Muestra la información detallada de un anime de la página web -->
+                                        <li><a href="{% url 'main:watching' %}">Animes Vistos</a></li> <!-- Muestra un anime visto en la página web -->
+                                        <li><a href="{% url 'main:detail' %}">Blog a detalle</a></li> <!-- Muestra un blog a detalle de la página web -->
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'main:blogs' %}">Nuestro Blog</a></li> <!-- Muestra los blogs disponibles de la página web -->
+                                <li><a href="{% url 'main:contact' %}">Tu Blog</a></li> <!-- Permite al usuario agregar su blog o comentarios al respecto -->
+                                
+                                <li><a href="">Cuenta <span class="arrow_carrot-down"></span></a> <!-- Despliega los inicio de sesión en la página web -->
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:register' %}">Regístrate</a></li> <!-- Envía a la página de registro del usuario -->
+                                        <li><a href="{% url 'main:login' %}">Inicia sesión</a></li> <!-- Envía a la página de inicio de sesión del usuario -->
+                                        <li><a href="{% url 'main:logout' %}">Cierra sesión</a></li> <!-- Cierra la sesión del usuario -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                        <a href="{% url 'main:login' %}"><span class="icon_profile"></span></a> <!-- Al seleccionar el ícono, envía a la sección de inicio de sesión -->
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+   
+    <!-- Se incluye la sección de mensajes -->
+  <body>
+    {% include 'main/partials/messages.html' %}
+    
+    {% block content %}
+    {% endblock %}
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+  <div class="page-up">
+      <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3">
+              <div class="footer__logo">
+                  <!-- Al seleccionar el logo de la página web, lleva al inicio nuevamente -->
+                  <a href="{% url 'main:home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a> <!-- Muestra el logo de la página web -->
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="footer__nav">
+                  <ul>
+                      <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li> <!-- Muestra la página de inicio de la página web -->
+                      <li><a href="{% url 'main:categorie' %}">Categorías</a></li> <!-- Muestra las categorías de animes y mangas de la página web -->
+                      <li><a href="{% url 'main:blogs' %}">Nuestro Blog</a></li> <!-- Muestra los blogs disponibles de la página web -->
+                      <li><a href="{% url 'main:contact' %}">Tu Blog</a></li> <!-- Permite al usuario agregar su blog o comentarios al respecto -->
+                  </ul>
+              </div>
+          </div>
+          <div class="col-lg-3" style="text-align: justify;text-justify: inter-word;">
+              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <B><FONT COLOR="white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Animes y Mangas | Shueisha <i class="fa fa-heart" aria-hidden="true"></i> por: <a href="" target="_blank"> Keily Marín</a></FONT></B>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+    <!-- ================================
+    Start Scripts
+    =================================
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+    <script src="https://unpkg.com/swiper@7.0.5/swiper-bundle.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+    {% block extend_footer %}{%endblock%}
+    ================================
+    End Scripts
+    ================================= -->
+    
+    <!-- Js Plugins utilizados -->
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="player.js"></script>
+    <script src="jquery.nice-select.min.js"></script>
+    <script src="mixitup.min.js"></script>
+    <script src="jquery.slicknav.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,622 @@
+<!-- "Load static que permite y funciona para leer archivos extraídos" -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- "Muestra el ícono de la página web" -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/icon.jpg' %}">
+    <link rel="apple-touch-icon" type="image/jpg" href="{% static 'images/icon.jpg' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animes y Mangas | Shueisha</title> <!-- Título que se muestra en la pestaña -->
+
+    <!-- Fuentes de google utilizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles utilizados -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'style1.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="{% url 'main:home' %}"> <!-- Al seleccionar el logo de la página web, lleva al inicio nuevamente -->
+                            <img src="{% static 'img/logo.png' %}" alt=""> <!-- Muestra el logo de la página web -->
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li> <!-- Muestra la página de inicio de la página web -->
+                                <li><a href="{% url 'main:categorie' %}">Categorías <span class="arrow_carrot-down"></span></a> <!-- Despliega las categorías visibles en la página web -->
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:categorie' %}">Categorías</a></li> <!-- Muestra las categorías de animes y mangas de la página web -->
+                                        <li><a href="{% url 'main:reviews' %}">Anime a detalle</a></li> <!-- Muestra la información detallada de un anime de la página web -->
+                                        <li><a href="{% url 'main:watching' %}">Animes Vistos</a></li> <!-- Muestra un anime visto en la página web -->
+                                        <li><a href="{% url 'main:detail' %}">Blog a detalle</a></li> <!-- Muestra un blog a detalle de la página web -->
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'main:blogs' %}">Nuestro Blog</a></li> <!-- Muestra los blogs disponibles de la página web -->
+                                <li><a href="{% url 'main:contact' %}">Tu Blog</a></li> <!-- Permite al usuario agregar su blog o comentarios al respecto -->
+                                
+                                <li><a href="">Cuenta <span class="arrow_carrot-down"></span></a> <!-- Despliega los inicio de sesión en la página web -->
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:register' %}">Regístrate</a></li> <!-- Envía a la página de registro del usuario -->
+                                        <li><a href="{% url 'main:login' %}">Inicia sesión</a></li> <!-- Envía a la página de inicio de sesión del usuario -->
+                                        <li><a href="{% url 'main:logout' %}">Cierra sesión</a></li> <!-- Cierra la sesión del usuario -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                        <a href="{% url 'main:login' %}"><span class="icon_profile"></span></a> <!-- Al seleccionar el ícono, envía a la sección de inicio de sesión -->
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Begin / Encabezado -->
+    <!-- Muestra imágenes de 3 animes o mangas, junto a su genero, nombre y descripción -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__slider owl-carousel">
+                <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.jpeg' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Aventura</div>
+                                <h2>One Piece</h2>
+                                <p> Es la historia de un chico llamado Monkey D. Luffy, quién se inspiró en Shanks, un pirata que le salvó la vida, para convertirse en el Rey de los Piratas....</p>
+                                <a href="{% url 'main:reviews' %}"><span>¡Descúbrelo!</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Acción</div>
+                                <h2>Boku No Hero Academia</h2>
+                                <p>Izuku Midoriya, un joven que vive en un mundo donde más de la mitad de la población ha desarrollado superpoderes, surgiendo así héroes y villanos....</p>
+                                <a href="{% url 'main:reviews' %}"><span>¡Descúbrelo!</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-3.jpg' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Ninja</div>
+                                <h2>Boruto</h2>
+                                <p>Boruto es un Genin de la Aldea Oculta de la Hoja. Es hijo de Naruto Uzumaki y Hinata Hyūga y hermano mayor de Himawari Uzumaki....</p>
+                                <a href="{% url 'main:reviews' %}"><span>¡Descúbrelo!</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Product Section Begin -->
+    <!-- Muestra las secciones de "tendencia", "populares" y "agregados recientemente", junto a su imagen, 
+        cantidad de episodios, comentarios, vistas, si está activo o inactivo, si es anime, manga o película, 
+        y su nombre -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="trending__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Tendencia</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="#" class="primary-btn">Todos <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/trending/trend-1.jpg' %}">
+                                        <div class="ep">61 / 61</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 150M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 516M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">One Piece</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/trending/trend-2.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 3M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 55M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Película</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/trending/trend-3.jpg' %}">
+                                        <div class="ep">69 / 69</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 300mil</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 1M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Manga</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Kaijuu #8</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/trending/trend-4.jpg' %}">
+                                        <div class="ep">24 / 24</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 5M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 70M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Jujutsu Kaisen</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/trending/trend-5.jpg' %}">
+                                        <div class="ep">51 / 51</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 2M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 17M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Black Clover</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/trending/trend-6.jpg' %}">
+                                        <div class="ep">25 / 25</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 400mil</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 1.7M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Spy X Family</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Populares</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="#" class="primary-btn">Todos <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-1.jpg' %}">
+                                        <div class="ep">61 / 61</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 150M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 516M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">One Piece</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-2.jpg' %}">
+                                        <div class="ep">40 / 40</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 100M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 350M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Dragon Ball</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-3.jpg' %}">
+                                        <div class="ep">50 / 50</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 75M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 250M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Naruto</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-4.jpg' %}">
+                                        <div class="ep">20 / 20</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 45M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 120M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">JoJo' Bizarre Adventure</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-5.jpg' %}">
+                                        <div class="ep">26 / 26</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 65M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 150M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Kimetsu no Yaiba</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-6.jpg' %}">
+                                        <div class="ep">20 / 20</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 40M</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 120M</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Anime</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Bleach</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Agregados recientemente</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="#" class="primary-btn">Todos <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/recent/recent-1.jpeg' %}">
+                                        <div class="ep">26 / 26</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 20</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 450</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Inactivo</li>
+                                            <li>Manga</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Protect Me, Shugomaru!</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/recent/recent-2.jpg' %}">
+                                        <div class="ep">36 / 36</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 4.000</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 12.500</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Inactivo</li>
+                                            <li>Manga</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Doron Dororon </a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/recent/recent-3.jpg' %}">
+                                        <div class="ep">25 / 25</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 400</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 1.500</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Inactivo</li>
+                                            <li>Manga</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Ayashimon</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/recent/recent-4.jpg' %}">
+                                        <div class="ep">11 / 11</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 9.000</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 20.000</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Activo</li>
+                                            <li>Manga</li>
+                                        </ul>
+                                        <h5><a href="{% url 'main:watching' %}">Show-ha Shoten!</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Muestra la sección de "más vistos", junto a su imagen, cantidad de episodios, vistas y su nombre -->
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="product__sidebar">
+                        <div class="product__sidebar__view">
+                            <div class="section-title">
+                                <h5>Más Vistos</h5>
+                            </div>
+
+                            <!-- Permite mediante un control de filtro, clasficar dichos animes y mangas según su: día, semana, mes y año -->
+                            <ul class="filter__controls">
+                                <li class="active" data-filter="*">Día</li>
+                                <li data-filter=".week">Semana</li>
+                                <li data-filter=".month">Mes</li>
+                                <li data-filter=".years">Años</li>
+                            </ul>
+                            <div class="filter__gallery">
+                                <div class="product__sidebar__view__item set-bg mix day years"
+                                data-setbg="{% static 'img/sidebar/tv-1.jpg' %}">
+                                <div class="ep">1059 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 516M</div>
+                                <h5><a href="{% url 'main:reviews' %}">One Piece</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg mix month week"
+                            data-setbg="{% static 'img/sidebar/tv-2.jpg' %}">
+                            <div class="ep">87 / ?</div>
+                            <div class="view"><i class="fa fa-eye"></i> 350M</div>
+                            <h5><a href="{% url 'main:reviews' %}">Dragon Ball Super</a></h5>
+                        </div>
+                        <div class="product__sidebar__view__item set-bg mix week years"
+                        data-setbg="{% static 'img/sidebar/tv-3.jpg' %}">
+                        <div class="ep">205 / ?</div>
+                        <div class="view"><i class="fa fa-eye"></i> 150M</div>
+                        <h5><a href="{% url 'main:reviews' %}">Kimetsu no Yaiba</a></h5>
+                    </div>
+                    <div class="product__sidebar__view__item set-bg mix years month"
+                    data-setbg="{% static 'img/sidebar/tv-4.jpg' %}">
+                    <div class="ep">356 / ?</div>
+                    <div class="view"><i class="fa fa-eye"></i> 65M</div>
+                    <h5><a href="{% url 'main:reviews' %}">Boku no Hero Academia</a></h5>
+                </div>
+                <div class="product__sidebar__view__item set-bg mix day"
+                data-setbg="{% static 'img/sidebar/tv-5.jpg' %}">
+                <div class="ep">72 / ?</div>
+                <div class="view"><i class="fa fa-eye"></i> 450.356</div>
+                <h5><a href="{% url 'main:reviews' %}">Boruto: Naruto next generations</a></h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Muestra la sección de "otros", junto a su imagen, si está activo o inactivo, si es anime, manga o película,
+        su nombre y vistas -->
+    <div class="product__sidebar__comment">
+        <div class="section-title">
+            <h5>Otros</h5>
+        </div>
+        <div class="product__sidebar__comment__item">
+            <div class="product__sidebar__comment__item__pic">
+                <img src="{% static 'img/sidebar/comment-1.jpg' %}" alt="">
+            </div>
+            <div class="product__sidebar__comment__item__text">
+                <ul>
+                    <li>Inactivo</li>
+                    <li>Manga</li>
+                </ul>
+                <h5><a href="{% url 'main:watching' %}">Slam Dunk</a></h5>
+                <span><i class="fa fa-eye"></i> 170M Vistas</span>
+            </div>
+        </div>
+        <div class="product__sidebar__comment__item">
+            <div class="product__sidebar__comment__item__pic">
+                <img src="{% static 'img/sidebar/comment-2.jpg' %}" alt="">
+            </div>
+            <div class="product__sidebar__comment__item__text">
+                <ul>
+                    <li>Activo</li>
+                    <li>Manga</li>
+                </ul>
+                <h5><a href="{% url 'main:watching' %}">Hunter x Hunter</a></h5>
+                <span><i class="fa fa-eye"></i> 80M Vistas</span>
+            </div>
+        </div>
+        <div class="product__sidebar__comment__item">
+            <div class="product__sidebar__comment__item__pic">
+                <img src="{% static 'img/sidebar/comment-3.jpg' %}" alt="">
+            </div>
+            <div class="product__sidebar__comment__item__text">
+                <ul>
+                    <li>Inactivo</li>
+                    <li>Manga</li>
+                </ul>
+                <h5><a href="{% url 'main:watching' %}">Tokyo Ghoul</a></h5>
+                <span><i class="fa fa-eye"></i> 47M Vistas</span>
+            </div>
+        </div>
+        <div class="product__sidebar__comment__item">
+            <div class="product__sidebar__comment__item__pic">
+                <img src="{% static 'img/sidebar/comment-4.jpg' %}" alt="">
+            </div>
+            <div class="product__sidebar__comment__item__text">
+                <ul>
+                    <li>Inactivo</li>
+                    <li>Manga</li>
+                </ul>
+                <h5><a href="{% url 'main:watching' %}">Dr. Stone</a></h5>
+                <span><i class="fa fa-eye"></i> 10M Vistas</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="page-up">
+        <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="footer__logo">
+                    <!-- Al seleccionar el logo de la página web, lleva al inicio nuevamente -->
+                    <a href="{% url 'main:home' %}"><img src="{% static 'img/logo.png' %}" alt=""></a> <!-- Muestra el logo de la página web -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="footer__nav">
+                    <ul>
+                        <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li> <!-- Muestra la página de inicio de la página web -->
+                        <li><a href="{% url 'main:categorie' %}">Categorías</a></li> <!-- Muestra las categorías de animes y mangas de la página web -->
+                        <li><a href="{% url 'main:blogs' %}">Nuestro Blog</a></li> <!-- Muestra los blogs disponibles de la página web -->
+                        <li><a href="{% url 'main:contact' %}">Tu Blog</a></li> <!-- Permite al usuario agregar su blog o comentarios al respecto -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <B><FONT COLOR="white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Animes y Mangas | Shueisha <i class="fa fa-heart" aria-hidden="true"></i> por: <a href="" target="_blank"> Keily Marín</a></FONT></B>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!-- Footer Section End -->
+
+  <!-- Search model Begin -->
+  <div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="icon_close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Busca aquí....."> <!-- Simula poder realizar una busqueda en la página web -->
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+<!-- Js Plugins utilizados -->
+<script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<script src="{% static 'player.js' %}"></script>
+<script src="{% static 'jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'mixitup.min.js' %}"></script>
+<script src="{% static 'jquery.slicknav.js' %}"></script>
+<script src="{% static 'owl.carousel.min.js' %}"></script>
+<script src="{% static 'main.js' %}"></script>
+
+
+</body>
+
+</html>

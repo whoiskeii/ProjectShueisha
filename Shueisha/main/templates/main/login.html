@@ -1,0 +1,139 @@
+<!-- "Sección que se extiende del 'base.html'" -->
+{% extends 'main/base.html' %}
+
+<!-- "Load static que permite y funciona para leer archivos extraídos" -->
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+
+<!-- Core theme CSS (includes Bootstrap)
+<link href="{% static 'style1.css' %}" rel="stylesheet" />
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animes y Mangas | Shueisha</title> <!-- Título que se muestra en la pestaña -->
+
+    <!-- Fuentes de google utilizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles utilizados -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'style1.css' %}" type="text/css">
+</head>
+<section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3  align-items-center">
+          <div class="col-md-6">
+            <div class="bannerContent">
+                <br>
+              <h1 class="text-white">¡Bienvenidx!</h1> <!-- Da la bienvenida al usuario -->
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+
+
+                <h3 class="text-white">INICIA SESIÓN</h3> <!-- Título de la sección -->
+            </div>
+
+            <!-- Formulario que permite a la persona insertar su usuario y contraseña -->
+            <div class="d-flex justify-content-center form_container">
+                <form method="POST" action=""> <!-- Comienza el guardado de la información -->
+                    {% csrf_token %} <!-- Protege y hace posible el envío de la información -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+
+                        <input type="text" name="username" placeholder="Nombre de usuario..." class="form-control">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+
+                            <input type="password" name="password" placeholder="Contraseña..." class="form-control" >
+                    </div>
+
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                             <input class="d-flex justify-content-center links" type="submit" value="Inicio de sesión"> <!-- Se encarga de enviar la información a la base de datos -->
+                           </div>
+                </form>
+
+            </div>
+
+            <!-- Muestra el mensaje deseado -->
+            {% for message in messages %}
+                <p id="messages">{{message}}</p>
+            {% endfor %}			
+    
+            <!-- Si el usuario aún no cuenta con una sesión, al seleccionar esta opción, le es posible registrarse -->
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    <h5 class="text-white">¿No tienes una cuenta?</h5> <a href="{% url 'main:register' %}" class="ml-2">Regístrate</a> <!-- Envía a la página de registro del usuario -->
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+<!-- ================================
+End Content
+================================= -->
