@@ -12,11 +12,12 @@ from . models import (
     Media,
     )
 
+#Esta sección es para el registro del ID, el usuario y más
 #Admin creado para almacenar los blogs de la empresa Shueisha
 @admin.register(blog)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'is_active') #Indica si se encuentra activo
-    readonly_fields = ('slug',)
+    readonly_fields = ('slug',) #Para utilizar los datos ya obtenidos
 
 #Admin creado para almacenar los reviews de la empresa Shueisha
 @admin.register(review)
